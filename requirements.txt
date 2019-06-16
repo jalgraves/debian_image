@@ -1,0 +1,13 @@
+django
+psycopg2
+gunicorn
+django-dbbackup
+django-webpack-loader
+djangorestframework
+django-filter
+requests
+coverage
+aiohttp
+bs4
+jockbot-mlb
+jockbot-nhl

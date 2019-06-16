@@ -1,0 +1,31 @@
+filebeat:
+  config:
+    modules:
+      path: /etc/filebeat/modules.d/*.yml
+      reload:
+        enabled: true
+  inputs:
+  - enabled: true
+    paths:
+    - /var/log/*.log
+    - "${LOGSTASH_PATH}"
+    type: log
+name: "${SITE_NAME}"
+output:
+  logstash:
+    hosts:
+    - "${LOGSTASH_HOST}"
+path:
+  config: /etc/filebeat
+  data: /var/lib/filebeat
+  home: /usr/share/filebeat
+  logs: /var/log/filebeat
+processors:
+- add_host_metadata: null
+- add_cloud_metadata: null
+setup:
+  kibana: null
+  template:
+    settings:
+      index:
+        number_of_shards: 1
