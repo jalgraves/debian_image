@@ -4,14 +4,6 @@ sleep 2
 
 printf "\n* Starting ${SITE_NAME} App *\n\n"
 if [ -d '/app/log' ]
-then
-    rm -rf /app/log/
-    mkdir /app/log
-    touch /app/log/${SITE_NAME}.log
-else
-    mkdir /app/log
-    touch /app/log/${SITE_NAME}.log
-fi
 
 filebeat run &
 
